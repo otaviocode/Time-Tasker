@@ -8,6 +8,8 @@ public class TimeTaskerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TimeTaskerApplication.class, args);
+		
+		System.out.println("Hello World");
 	}
 
 }
