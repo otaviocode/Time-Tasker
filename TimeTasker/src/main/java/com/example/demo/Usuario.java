@@ -6,6 +6,8 @@ import java.util.Objects;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name = "Usuario")
 public class Usuario implements Serializable {
@@ -19,7 +21,10 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha; // qualquer coisa muda o tipo de dado por ser senha!!
 
-	// aqui criar o relacionamento com a futura classe Tarefas!!!
+	// relacionamento com a classe usuario.
+	@ManyToOne
+	@JoinColumn(name = "tarefa_id")
+	private Tarefa tarefa;
 
 	public Long getId() {
 		return id;
