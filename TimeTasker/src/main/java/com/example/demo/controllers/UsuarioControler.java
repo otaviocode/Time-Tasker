@@ -9,7 +9,6 @@ import com.example.demo.repositories.RepositorioUsuario;
 @RequestMapping("/usuario")
 public class UsuarioControler {
 
-	@SuppressWarnings("rawtypes")
 	@Autowired
 	RepositorioUsuario repositorioUsuario;
 

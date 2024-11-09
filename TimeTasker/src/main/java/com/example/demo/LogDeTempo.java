@@ -1,14 +1,16 @@
 package com.example.demo;
 
 import java.io.Serializable;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
-@Entity(name = "LogDeTempo")
+@Entity
+@Table(name = "LogDeTempo")
 public class LogDeTempo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,8 +18,8 @@ public class LogDeTempo implements Serializable {
 	@Id
 	private Long id;
 
-	private DateTimeFormatter horaInicio;
-	private DateTimeFormatter horaFim;
+	private LocalTime horaInicio;
+	private LocalTime horaFim;
 	private String duracao;
 
 	// Relacionamento
@@ -32,19 +34,19 @@ public class LogDeTempo implements Serializable {
 		this.id = id;
 	}
 
-	public DateTimeFormatter getHoraInicio() {
+	public LocalTime getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(DateTimeFormatter horaInicio) {
+	public void setHoraInicio(LocalTime horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public DateTimeFormatter getHoraFim() {
+	public LocalTime getHoraFim() {
 		return horaFim;
 	}
 
-	public void setHoraFim(DateTimeFormatter horaFim) {
+	public void setHoraFim(LocalTime horaFim) {
 		this.horaFim = horaFim;
 	}
 

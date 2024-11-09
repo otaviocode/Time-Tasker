@@ -6,27 +6,32 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity(name = "Tarefa")
+@Entity
+@Table(name = "Tarefa")
 public class Tarefa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column
-	private int id;
+	@Column // qualquer coisa remove esse !
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String titulo;
 	private String descricao;
 	private Date prazo;
 	private String prioridade;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
