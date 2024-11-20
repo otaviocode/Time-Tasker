@@ -11,4 +11,7 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Long> {
 
 	Optional<Usuario> findBySenha(String senha);
 
+	// Alterado para String ao invés de Object
+	Optional<Usuario> findByLogin(String login);
+
 }

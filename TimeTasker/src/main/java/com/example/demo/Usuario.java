@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity(name = "Usuario")
 public class Usuario implements Serializable {
@@ -20,15 +18,20 @@ public class Usuario implements Serializable {
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private String nomeUsuario;
 	private String email;
-	private String senha; // qualquer coisa muda o tipo de dado por ser senha!!
+	private String senha;
+	private String login;
 
-	// relacionamento com a classe usuario.
-	@ManyToOne
-	@JoinColumn(name = "tarefa_id")
-	private Tarefa tarefa;
+	// Construtor para criar o usuário com nome de usuário, email e senha
+	public Usuario(String nomeUsuario, String email, String senha) {
+		this.nomeUsuario = nomeUsuario;
+		this.email = email;
+		this.senha = senha;
+	}
 
+	// Getters e Setters
 	public Long getId() {
 		return id;
 	}
@@ -61,6 +64,14 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -77,5 +88,4 @@ public class Usuario implements Serializable {
 		Usuario other = (Usuario) obj;
 		return Objects.equals(id, other.id);
 	}
-
 }
