@@ -10,5 +10,4 @@ public class TimeTaskerApplication {
 		SpringApplication.run(TimeTaskerApplication.class, args);
 
 	}
-
 }
