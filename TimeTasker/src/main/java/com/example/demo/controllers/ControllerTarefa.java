@@ -38,8 +38,10 @@ public class ControllerTarefa {
 	// Endpoint para criar uma nova tarefa
 	@PostMapping
 	public ResponseEntity<Tarefa> criarTarefa(@RequestBody Tarefa tarefa) {
-		if (tarefa.getTitulo() == null || tarefa.getTitulo().isEmpty()) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		if (tarefa.getTitulo() == null || tarefa.getTitulo().isEmpty() || tarefa.getDescricao() == null
+				|| tarefa.getDescricao().isEmpty() || tarefa.getPrazo() == null || tarefa.getPrioridade() == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); // Retorna erro se algum campo estiver
+																				// vazio
 		}
 		Tarefa novaTarefa = repositorioTarefa.save(tarefa);
 		return ResponseEntity.status(HttpStatus.CREATED).body(novaTarefa);
@@ -68,34 +70,31 @@ public class ControllerTarefa {
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
-	// Endpoint para buscar tarefas por título
+	// Buscar por Título
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Tarefa>> buscarPorTitulo(@PathVariable String titulo) {
-		@SuppressWarnings("unchecked")
-		List<Tarefa> tarefas = (List<Tarefa>) repositorioTarefa.findByTitulo(titulo).orElse(null);
-		if (tarefas == null || tarefas.isEmpty()) {
+		List<Tarefa> tarefas = repositorioTarefa.findByTitulo(titulo);
+		if (tarefas.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.ok(tarefas);
 	}
 
-	// Endpoint para buscar tarefas por prioridade
+	// Buscar por Prioridade
 	@GetMapping("/prioridade/{prioridade}")
 	public ResponseEntity<List<Tarefa>> buscarPorPrioridade(@PathVariable String prioridade) {
-		@SuppressWarnings("unchecked")
-		List<Tarefa> tarefas = (List<Tarefa>) repositorioTarefa.findByPrioridade(prioridade).orElse(null);
-		if (tarefas == null || tarefas.isEmpty()) {
+		List<Tarefa> tarefas = repositorioTarefa.findByPrioridade(prioridade);
+		if (tarefas.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.ok(tarefas);
 	}
 
-	// Endpoint para buscar tarefas por prazo
+	// Buscar por Prazo
 	@GetMapping("/prazo/{prazo}")
 	public ResponseEntity<List<Tarefa>> buscarPorPrazo(@PathVariable Date prazo) {
-		@SuppressWarnings("unchecked")
-		List<Tarefa> tarefas = (List<Tarefa>) repositorioTarefa.findByPrazo(prazo).orElse(null);
-		if (tarefas == null || tarefas.isEmpty()) {
+		List<Tarefa> tarefas = repositorioTarefa.findByPrazo(prazo);
+		if (tarefas.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.ok(tarefas);

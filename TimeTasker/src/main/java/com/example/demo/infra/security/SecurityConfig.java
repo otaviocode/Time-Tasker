@@ -17,41 +17,35 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-	// Configuração do AuthenticationManager
 	@Bean
-	AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-		AuthenticationManagerBuilder authenticationManagerBuilder = http
-				.getSharedObject(AuthenticationManagerBuilder.class);
-
-		authenticationManagerBuilder.inMemoryAuthentication().withUser("user")
-				.password(passwordEncoder().encode("password")).roles("USER").and().withUser("admin")
-				.password(passwordEncoder().encode("admin")).roles("ADMIN");
-
-		return authenticationManagerBuilder.build();
-	}
-
-	// Configuração do UserDetailsService para gerenciamento de usuários em memória
-	@Bean
-	UserDetailsService userDetailsService() {
+	public UserDetailsService userDetailsService() {
+		// Configuração de usuários em memória para teste
 		return new InMemoryUserDetailsManager(
 				User.withUsername("user").password(passwordEncoder().encode("password")).roles("USER").build(),
 				User.withUsername("admin").password(passwordEncoder().encode("admin")).roles("ADMIN").build());
 	}
 
-	// Configuração do SecurityFilterChain para controlar as permissões e acesso
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(requests -> requests.requestMatchers("/public/**").permitAll() // Libera o acesso a
-																									// "/public/**"
-				.anyRequest().authenticated()) // Requer autenticação para outras URLs
-				.formLogin(login -> login.permitAll()); // Habilita o login padrão do Spring Security
+	public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+		AuthenticationManagerBuilder authenticationManagerBuilder = http
+				.getSharedObject(AuthenticationManagerBuilder.class);
+		authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+		return authenticationManagerBuilder.build();
+	}
+
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.csrf().disable() // Desabilita CSRF para APIs REST
+				.authorizeRequests().requestMatchers("/auth/login").permitAll() // Permite o acesso ao login sem
+				// autenticação
+				.anyRequest().authenticated() // Requer autenticação para outras rotas
+				.and().httpBasic(); // Usar autenticação básica
 
 		return http.build();
 	}
 
-	// Bean para o PasswordEncoder
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder(); // Usando BCrypt para codificação de senhas
 	}
 }
