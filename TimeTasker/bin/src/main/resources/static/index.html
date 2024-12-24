@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tasker - Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <button id="btnNovaTarefa" onclick="window.location.href='tarefas.html'">Criar Nova Tarefa</button>
+        <div id="loading" style="display: none;">Carregando...</div>
+        <table id="tarefasTable">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Prazo</th>
+                    <th>Prioridade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tarefasList"></tbody>
+        </table>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

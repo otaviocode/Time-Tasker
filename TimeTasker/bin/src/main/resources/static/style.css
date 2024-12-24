@@ -1,0 +1,211 @@
+/* ---------------------------- */
+/* 🌟 Estilos Globais */
+/* ---------------------------- */
+:root {
+    --primary-color: #4f46e5; /* Azul profundo */
+    --secondary-color: #6366f1; /* Azul claro */
+    --background-color: #f9fafb; /* Fundo claro */
+    --text-color: #333333; /* Texto escuro */
+    --border-color: #e5e7eb; /* Cinza para bordas */
+    --danger-color: #dc2626; /* Vermelho */
+    --success-color: #16a34a; /* Verde */
+    --warning-color: #f59e0b; /* Amarelo */
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------- */
+/* 🌟 Títulos e Cabeçalhos */
+/* ---------------------------- */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* ---------------------------- */
+/* 🌟 Botões */
+/* ---------------------------- */
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+button.delete {
+    background-color: var(--danger-color);
+}
+
+button.delete:hover {
+    background-color: #b91c1c;
+}
+
+/* ---------------------------- */
+/* 🌟 Tabela de Tarefas */
+/* ---------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: left;
+}
+
+table thead th {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+table tbody tr:hover {
+    background-color: #eef2ff;
+}
+
+table tbody td {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+}
+
+table tbody td button {
+    margin-right: 5px;
+}
+
+/* ---------------------------- */
+/* 🌟 Formulários */
+/* ---------------------------- */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+form input,
+form textarea,
+form select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border: 1px solid var(--primary-color);
+}
+
+form button {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+/* ---------------------------- */
+/* 🌟 Indicador de Carregamento */
+/* ---------------------------- */
+#loading {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-top: 10px;
+}
+
+/* ---------------------------- */
+/* 🌟 Estilização de Prioridades */
+/* ---------------------------- */
+.prioridade-Alta {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+.prioridade-Média {
+    color: var(--warning-color);
+}
+
+.prioridade-Baixa {
+    color: var(--success-color);
+}
+
+/* ---------------------------- */
+/* 🌟 Links e Botões de Navegação */
+/* ---------------------------- */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* ---------------------------- */
+/* 🌟 Responsividade */
+/* ---------------------------- */
+@media (max-width: 600px) {
+    table {
+        font-size: 0.85rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    form input,
+    form textarea,
+    form select {
+        font-size: 0.9rem;
+    }
+}
