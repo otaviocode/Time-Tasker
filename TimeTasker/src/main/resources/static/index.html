@@ -10,23 +10,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Lista de Tarefas</h1>
-        <button id="btnNovaTarefa" onclick="window.location.href='tarefas.html'">Criar Nova Tarefa</button>
-        <div id="loading" style="display: none;">Carregando...</div>
-        <table id="tarefasTable">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Prazo</th>
-                    <th>Prioridade</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tarefasList"></tbody>
-        </table>
+        <header>
+            <h1>Lista de Tarefas</h1>
+        </header>
+        <main>
+            <button id="btnNovaTarefa" onclick="window.location.href='tarefas.html'">
+                <i class="fas fa-plus"></i> Criar Nova Tarefa
+            </button>
+            <div id="loading" style="display: none;" aria-live="polite">
+                <p>Carregando tarefas...</p>
+            </div>
+            <table id="tarefasTable" aria-label="Tabela de tarefas">
+                <thead>
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Prazo</th>
+                        <th scope="col">Prioridade</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tarefasList">
+                    <!-- As tarefas serão carregadas dinamicamente aqui -->
+                </tbody>
+            </table>
+        </main>
     </div>
-	<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

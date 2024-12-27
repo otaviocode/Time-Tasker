@@ -27,7 +27,7 @@ body {
 .container {
     max-width: 900px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     background: rgba(0, 0, 0, 0.7); /* Fundo escuro e translúcido */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -37,7 +37,7 @@ body {
 /* 🌟 Títulos e Cabeçalhos */
 /* ---------------------------- */
 h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -50,13 +50,16 @@ button {
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 1rem;
+    padding: 12px 25px;
+    margin: 10px 5px;
+    font-size: 1.1rem;
     font-weight: 500;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover {
@@ -69,6 +72,10 @@ button.delete {
 
 button.delete:hover {
     background-color: #b91c1c;
+}
+
+button i {
+    margin-right: 5px;
 }
 
 /* ---------------------------- */
@@ -90,7 +97,8 @@ table thead {
 }
 
 table thead th {
-    padding: 12px 15px;
+    padding: 14px 20px;
+    font-size: 1rem;
 }
 
 table tbody tr {
@@ -106,13 +114,13 @@ table tbody tr:hover {
 }
 
 table tbody td {
-    padding: 10px 15px;
-    font-size: 0.95rem;
+    padding: 12px 20px;
+    font-size: 1rem;
     color: #fff;
 }
 
 table tbody td button {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 /* ---------------------------- */
@@ -122,11 +130,11 @@ form {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 form label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #fff; /* Cor das labels */
 }
@@ -134,7 +142,7 @@ form label {
 form input,
 form textarea,
 form select {
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -151,9 +159,8 @@ form select:focus {
 }
 
 form button {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    padding: 12px;
+    font-size: 1.2rem;
+    padding: 14px;
     background-color: var(--primary-color);
     color: #fff;
 }
@@ -163,7 +170,7 @@ form button {
 /* ---------------------------- */
 #loading {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--secondary-color);
     margin-top: 10px;
@@ -209,12 +216,21 @@ a:hover {
 
     button {
         font-size: 0.9rem;
-        padding: 8px 15px;
+        padding: 10px 18px;
     }
 
     form input,
     form textarea,
     form select {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form button {
+        font-size: 1rem;
+        padding: 12px;
     }
 }
