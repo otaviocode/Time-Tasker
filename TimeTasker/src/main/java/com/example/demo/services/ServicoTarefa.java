@@ -19,4 +19,29 @@ public class ServicoTarefa {
 	public List<Tarefa> buscarTodasTarefas() {
 		return repositorioTarefa.findAll();
 	}
+
+	public Object buscarPorId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Tarefa salvar(Tarefa tarefa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object atualizar(Long id, Tarefa tarefa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Tarefa> filtrar(String titulo, String prioridade, java.util.Date prazo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean excluir(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
