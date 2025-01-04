@@ -8,28 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="pageTitle">Criar Tarefa</h1>
+        <h1 id="pageTitle">Create Task</h1>
         <form id="tarefaForm">
             <input type="hidden" id="tarefaId">
-            <label for="titulo">Título:</label>
+            <label for="titulo">Title:</label>
             <input type="text" id="titulo" required>
             
-            <label for="descricao">Descrição:</label>
+            <label for="descricao">Description:</label>
             <textarea id="descricao" required></textarea>
             
-            <label for="prazo">Prazo:</label>
+            <label for="prazo">Term:</label>
             <input type="date" id="prazo" required>
             
-            <label for="prioridade">Prioridade:</label>
+            <label for="prioridade">Priority:</label>
             <select id="prioridade" required>
-                <option value="Alta">Alta</option>
-                <option value="Média">Média</option>
-                <option value="Baixa">Baixa</option>
+                <option value="Alta">High</option>
+                <option value="Média">medium</option>
+                <option value="Baixa">Low</option>
             </select>
             
-            <button type="submit" id="submitBtn">Salvar Tarefa</button>
+            <button type="submit" id="submitBtn">Save Task</button>
         </form>
-        <button onclick="window.location.href='index.html'">Voltar</button>
+        <button onclick="window.location.href='index.html'">To go back</button>
     </div>
 
 

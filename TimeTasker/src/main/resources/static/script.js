@@ -28,7 +28,7 @@ function carregarTarefas() {
         .then(tarefas => {
             tarefasList.innerHTML = ''; // Limpa a tabela
             if (tarefas.length === 0) {
-                tarefasList.innerHTML = '<tr><td colspan="5">Nenhuma tarefa encontrada.</td></tr>';
+                tarefasList.innerHTML = '<tr><td colspan="5">No tasks found.</td></tr>';
                 return;
             }
             tarefas.forEach(tarefa => {
