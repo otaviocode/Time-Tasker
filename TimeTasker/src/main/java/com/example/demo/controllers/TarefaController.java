@@ -15,7 +15,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/api/tarefas")
-public class ControllerTarefa {
+public class TarefaController {
 
 	@Autowired
 	private RepositorioTarefa repositorioTarefa;
